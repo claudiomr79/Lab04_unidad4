@@ -11,13 +11,23 @@ namespace Lab04
     {
         static void Main(string[] args)
         {
-            Contactos contactos = new ContactosMysql();
-            contactos.listar();
-            menu(contactos);
-
+            ManejadorArchivo manejadorArch;
+            Console.WriteLine("Elija el modo:");
+            Console.WriteLine("1 - TXT");
+            Console.WriteLine("2 - XML");
+            if (Console.ReadLine() == "2")
+            {
+                manejadorArch = new ManejadorArchivoXml();
+            }
+            else
+            {
+                manejadorArch = new ManejadorArchivoTxt();
+            }
+            manejadorArch.listar();
+            menu(manejadorArch);
         }
 
-        static void menu(Contactos contactos)
+        static void menu(ManejadorArchivo manejadorArch)
         {
             string rta = "";
             do
@@ -32,25 +42,26 @@ namespace Lab04
                 switch (rta)
                 {
                     case "1":
-                        contactos.listar();
+                        manejadorArch.listar();
                         break;
                     case "2":
-                        contactos.nuevaFila();
+                        manejadorArch.nuevaFila();
                         break;
                     case "3":
-                        contactos.editarFila();
+                        manejadorArch.editarFila();
                         break;
                     case "4":
-                        contactos.eliminarFila();
+                        manejadorArch.eliminarFila();
                         break;
                     case "5":
-                        contactos.aplicaCambios();
+                        manejadorArch.aplicaCambios();
                         break;
                     default:
                         break;
                 }
             } while (rta != "6");
         }
+
 
     }
 }

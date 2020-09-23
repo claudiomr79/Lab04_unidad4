@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Contactos.cs" />
     <Compile Include="ContactosMysql.cs" />
+    <Compile Include="ContactosMysqlConDataAdapter .cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
